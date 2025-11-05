@@ -3,26 +3,27 @@ import http from "k6/http";
 // Import the sleep function to introduce delays. From this point, you can use the `sleep` function to introduce delays in your test script.
 import { sleep, check } from "k6";
 
+const postLogin = JSON.parse(open("../fixtures/postLogin.json"));
+
 export const options = {
-  
-  vus: 10, // usuarios vituais
-  duration: "30s", // duraçãod a interação
+  // stages uma lista de objetos com duração do teste e numero de usuários virtuais para o teste.
+  stages: [
+    { duration: "10s", target: 10 },
+    { duration: "20s", target: 20 },
+    { duration: "10s", target: 0 },
+  ],
   thresholds: {
     http_req_duration: ["p(90)<3000", "max<5000"], //percentil 90 abaixo de 10 ms
     http_req_failed: ["rate<0.01"], // http errors should be less than 1%
   },
 };
-
 // The default exported function is gonna be picked up by k6 as the entry point for the test script. It will be executed repeatedly in "iterations" for the whole duration of the test.
 export default function () {
   //Teste!!!
 
   const url = "http://localhost:3000/login";
 
-  const payload = JSON.stringify({
-    username: "julio.lima",
-    senha: "123456",
-  });
+  const payload = JSON.stringify(postLogin);
 
   const params = {
     headers: {
