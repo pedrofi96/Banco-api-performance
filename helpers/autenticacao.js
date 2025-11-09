@@ -1,4 +1,5 @@
 import http from "k6/http";
+//import { pegarBaseURL } from "../utils/variaveis";
 
 const postLogin = JSON.parse(open("../fixtures/postLogin.json"));
 

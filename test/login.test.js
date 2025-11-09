@@ -2,6 +2,7 @@
 import http from "k6/http";
 // Import the sleep function to introduce delays. From this point, you can use the `sleep` function to introduce delays in your test script.
 import { sleep, check } from "k6";
+//import { pegarBaseURL } from "../utils/variaveis";
 
 const postLogin = JSON.parse(open("../fixtures/postLogin.json"));
 
@@ -21,7 +22,7 @@ export const options = {
 export default function () {
   //Teste!!!
 
-  const url = "http://localhost:3000/login";
+  const url =  "http://localhost:3000/login";
 
   const payload = JSON.stringify(postLogin);
 

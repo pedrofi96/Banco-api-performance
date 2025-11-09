@@ -1,6 +1,7 @@
 import http from "k6/http";
 import { sleep, check } from "k6";
 import { obterToken } from "../helpers/autenticacao.js";
+//import { pegarBaseURL } from "../utils/variaveis";
 
 export const options = {
   iterations: 1,
