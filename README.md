@@ -38,7 +38,7 @@ Banco-api-performance/
 │   └── autenticacao.js    # Helper para autenticação
 ├── utils/                 # Utilitários e configurações
 │   └── variaveis.js       # Variáveis de ambiente e configurações
-├── data/                  # Dados para os testes
+├── Fixtures/              # Dados para os testes
 └── README.md              # Este arquivo
 
 ```
